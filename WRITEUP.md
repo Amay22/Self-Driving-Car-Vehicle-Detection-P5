@@ -101,7 +101,8 @@ this hog features.
 2. I used the Feature Extractor defined above in HOG classifier to extract the features of a given image.
 3. I ran features from step 2 through the linear SVC classifier with an X scaler that I had trained earlier with my selected features which will be used predict if the features of an image is a vehicle. 
 4. Using the Sliding window discussed above on the image ​which will be used to carve out windows on the image where the classifier predicts that a vehicle is located or not. We slide this window within different parts of the image and store the boxes in which the car was found. 
-5. For video I got these boxes that are positive accumulated over a series of consecutive frames and feed it to a HeatMap. ​ Areas with multiple detections get “hot” while transient false positives stay “cool” as we impose a threshold to this HeatMap​. The remaining “Hot” regions and draw a bounding box for each “hot region” which implies a vehicle 
+5. To process the video I used the find_cars sliding window with two scales i.e. 1.0 and 1.5 and consolidated the images. For some frames the overlap ratio is not big enough so I increased of the entire find_cars function.
+6. For video I got these boxes that are positive accumulated over a series of consecutive frames and feed it to a HeatMap. ​ Areas with multiple detections get “hot” while transient false positives stay “cool” as we impose a threshold to this HeatMap​. The remaining “Hot” regions and draw a bounding box for each “hot region” which implies a vehicle 
 
 ![alt text][image3]
 ![alt text][image4]
